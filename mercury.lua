@@ -831,6 +831,14 @@ function Library:create(options)
 		Image = "http://www.roblox.com/asset/?id=8559790237"
 	}):tooltip("settings")
 
+	local creditsTabIcon = profile:object("ImageButton", {
+		BackgroundTransparency = 1,
+		Theme = {ImageColor3 = "WeakText"},
+		Size = UDim2.fromOffset(24, 24),
+		Position = UDim2.new(1, -44, 1, -10),
+		AnchorPoint = Vector2.new(1, 1),
+		Image = "http://www.roblox.com/asset/?id=8577523456"
+	}):tooltip("credits")
 
 	local quickAccess = homePage:object("Frame", {
 		BackgroundTransparency = 1,
@@ -877,7 +885,7 @@ function Library:create(options)
 	settingsTab:keybind{
 		Name = "Toggle Key",
 		Description = "Key to show/hide the UI.",
-		Keybind = Enum.KeyCode.Delete,
+		Keybind = Enum.KeyCode.V,
 		Callback = function()
 			self.Toggled = not self.Toggled
 			Library:show(self.Toggled)
@@ -902,6 +910,18 @@ function Library:create(options)
 			Library.DragSpeed = (20 - value)/100
 		end,
 	}
+
+	local creditsTab = Library.tab(mt, {
+		Name = "Credits",
+		Internal = creditsTabIcon,
+		Icon = "http://www.roblox.com/asset/?id=8577523456"
+	})
+
+	rawset(mt, "creditsContainer", creditsTab.container)
+
+	creditsTab:credit{Name = "Abstract", Description = "UI Library Developer", Discord = "Abstract#8007", V3rmillion = "AbstractPoo"}
+	creditsTab:credit{Name = "Deity", Description = "UI Library Developer", Discord = "Deity#0228", V3rmillion = "0xDEITY"}
+
 	return mt
 end
 
@@ -2721,7 +2741,7 @@ function Library:credit(options)
 	}, options)
 	options.V3rmillion = options.V3rmillion or options.V3rm
 
-	local creditContainer = (self.`Container or self.container):object("Frame", {
+	local creditContainer = (self.creditsContainer or self.container):object("Frame", {
 		Theme = {BackgroundColor3 = "Secondary"},
 		Size = UDim2.new(1, -20, 0, 52)
 	}):round(7)
