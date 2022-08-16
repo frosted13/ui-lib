@@ -334,7 +334,7 @@ local function getObjGen()
             Gui.Text.Size = UDim2.new(0.899999976, 0, 0.6, 0)
             Gui.Text.ZIndex = 112
             Gui.Text.Font = Enum.Font.GothamSemibold
-            Gui.Text.Text = ""
+            Gui.Text.Text = "BUTTON WITHOUT TITLE OR DESC"
             Gui.Text.TextColor3 = Color3.fromRGB(100, 100, 100)
             Gui.Text.TextScaled = true
             Gui.Text.TextSize = 14.000
