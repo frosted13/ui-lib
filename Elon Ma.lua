@@ -1,12 +1,15 @@
 local UILibrary = {}
 --// Modules
 
+--protectGUI(UIObjects);
+
 local function getObjGen()
     local objGen = {}
 
     local function getObjects()
         local function initObj()
             local Gui = {
+                UIObjects = Instance.new("Folder"),
                 Cheats = Instance.new("Folder"),
                 Button = Instance.new("Frame"),
                 UICorner = Instance.new("UICorner"),
@@ -109,6 +112,7 @@ local function getObjGen()
                 Line_2 = Instance.new("Frame"),
                 Select_3 = Instance.new("ImageLabel"),
                 Current_3 = Instance.new("TextLabel"),
+                Objects = Instance.new("Folder"),
                 Category = Instance.new("Frame"),
                 HoverFrame_5 = Instance.new("Frame"),
                 Content_4 = Instance.new("Frame"),
@@ -285,6 +289,11 @@ local function getObjGen()
             }
 
             --Properties:
+
+            Gui.UIObjects.Name = "UIObjects"
+
+            Gui.Cheats.Name = "Cheats"
+            Gui.Cheats.Parent = Gui.UIObjects
 
             Gui.Button.Name = "Button"
             Gui.Button.Parent = Gui.Cheats
@@ -1106,6 +1115,18 @@ local function getObjGen()
             Gui.Current_3.TextSize = 14.000
             Gui.Current_3.TextWrapped = true
 
+            Gui.Objects.Name = "Objects"
+            Gui.Objects.Parent = Gui.UIObjects
+
+            Gui.Category.Name = "Category"
+            Gui.Category.Parent = Gui.Objects
+            Gui.Category.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+            Gui.Category.BackgroundTransparency = 1.000
+            Gui.Category.BorderSizePixel = 0
+            Gui.Category.LayoutOrder = 1
+            Gui.Category.Size = UDim2.new(1, 0, 0.25, 0)
+            Gui.Category.ZIndex = 121
+
             Gui.HoverFrame_5.Name = "HoverFrame"
             Gui.HoverFrame_5.Parent = Gui.Category
             Gui.HoverFrame_5.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
@@ -1153,6 +1174,13 @@ local function getObjGen()
             Gui.UIListLayout_7.VerticalAlignment = Enum.VerticalAlignment.Center
             Gui.UIListLayout_7.Padding = UDim.new(0.0500000007, 0)
 
+            Gui.CategoryContent.Name = "CategoryContent"
+            Gui.CategoryContent.Parent = Gui.Objects
+            Gui.CategoryContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Gui.CategoryContent.BackgroundTransparency = 1.000
+            Gui.CategoryContent.Position = UDim2.new(1, 0, 0, 0)
+            Gui.CategoryContent.Size = UDim2.new(1, 0, 1, 0)
+
             Gui.Bar2Holder.Name = "Bar2Holder"
             Gui.Bar2Holder.Parent = Gui.CategoryContent
             Gui.Bar2Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1170,6 +1198,12 @@ local function getObjGen()
             Gui.UIPadding_5.Parent = Gui.CategoryContent
             Gui.UIPadding_5.PaddingLeft = UDim.new(0, 4)
             Gui.UIPadding_5.PaddingRight = UDim.new(0, 4)
+
+            Gui.Window.Name = "Window"
+            Gui.Window.Parent = Gui.Objects
+            Gui.Window.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Gui.Window.BackgroundTransparency = 1.000
+            Gui.Window.Size = UDim2.new(1, 0, 1, 0)
 
             Gui.Watermark.Name = "Watermark"
             Gui.Watermark.Parent = Gui.Window
@@ -1918,6 +1952,13 @@ local function getObjGen()
             Gui.UIListLayout_18.SortOrder = Enum.SortOrder.LayoutOrder
             Gui.UIListLayout_18.VerticalAlignment = Enum.VerticalAlignment.Bottom
 
+            Gui.CategoryButton.Name = "CategoryButton"
+            Gui.CategoryButton.Parent = Gui.Objects
+            Gui.CategoryButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+            Gui.CategoryButton.BackgroundTransparency = 1.000
+            Gui.CategoryButton.BorderSizePixel = 0
+            Gui.CategoryButton.Size = UDim2.new(1, 0, 0.200000003, 0)
+            Gui.CategoryButton.ZIndex = 121
 
             Gui.InnerContent.Name = "InnerContent"
             Gui.InnerContent.Parent = Gui.CategoryButton
@@ -1982,6 +2023,17 @@ local function getObjGen()
             Gui.HoverFrame_6.Size = UDim2.new(1, 0, 1, 0)
             Gui.HoverFrame_6.ZIndex = 122
 
+            Gui.CategoryFrame.Name = "CategoryFrame"
+            Gui.CategoryFrame.Parent = Gui.Objects
+            Gui.CategoryFrame.Active = true
+            Gui.CategoryFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Gui.CategoryFrame.BackgroundTransparency = 1.000
+            Gui.CategoryFrame.Position = UDim2.new(0, 0, 1, 0)
+            Gui.CategoryFrame.Size = UDim2.new(1, 0, 1, 0)
+            Gui.CategoryFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+            Gui.CategoryFrame.CanvasSize = UDim2.new(0, 0, 0.5, 0)
+            Gui.CategoryFrame.ScrollBarThickness = 0
+
             Gui.Left.Name = "Left"
             Gui.Left.Parent = Gui.CategoryFrame
             Gui.Left.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2023,6 +2075,13 @@ local function getObjGen()
             Gui.UIPadding_11.PaddingRight = UDim.new(0, 8)
             Gui.UIPadding_11.PaddingTop = UDim.new(0, 8)
 
+            Gui.Section.Name = "Section"
+            Gui.Section.Parent = Gui.Objects
+            Gui.Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Gui.Section.BackgroundTransparency = 1.000
+            Gui.Section.Size = UDim2.new(1, 0, 0, 0)
+            Gui.Section.ZIndex = 101
+            --Gui.Section.AutomaticSize = Enum.AutomaticSize.Y
 
             Gui.Border.Name = "Border"
             Gui.Border.Parent = Gui.Section
@@ -2086,7 +2145,11 @@ local function getObjGen()
             Gui.DropShadow_16.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_16.SliceCenter = Rect.new(49, 49, 450, 450)
 
-            
+            Gui.CheatBase.Name = "CheatBase"
+            Gui.CheatBase.Parent = Gui.Objects
+            Gui.CheatBase.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Gui.CheatBase.LayoutOrder = 1
+            Gui.CheatBase.Size = UDim2.new(1, 0, 0, 30)
 
             Gui.Content_9.Name = "Content"
             Gui.Content_9.Parent = Gui.CheatBase
@@ -2147,8 +2210,13 @@ local function getObjGen()
             Gui.UIListLayout_24.VerticalAlignment = Enum.VerticalAlignment.Center
             Gui.UIListLayout_24.Padding = UDim.new(0.0500000007, 0)
 
-
-            
+            Gui.Notification.Name = "Notification"
+            Gui.Notification.Parent = Gui.Objects
+            Gui.Notification.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+            Gui.Notification.BackgroundTransparency = 1.000
+            Gui.Notification.BorderSizePixel = 0
+            Gui.Notification.Size = UDim2.new(1, 0, 0.150000006, 0)
+            Gui.Notification.ZIndex = 10
 
             Gui.Main.Name = "Main"
             Gui.Main.Parent = Gui.Notification
@@ -2282,7 +2350,12 @@ local function getObjGen()
             Gui.UICorner_21.CornerRadius = UDim.new(0.0500000007, 0)
             Gui.UICorner_21.Parent = Gui.Notification_2
 
-            
+            Gui.Prompt.Name = "Prompt"
+            Gui.Prompt.Parent = Gui.Objects
+            Gui.Prompt.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+            Gui.Prompt.BackgroundTransparency = 1.000
+            Gui.Prompt.Size = UDim2.new(1, 0, 0.150000006, 0)
+            Gui.Prompt.ZIndex = 10
 
             Gui.Main_2.Name = "Main"
             Gui.Main_2.Parent = Gui.Prompt
@@ -2431,10 +2504,25 @@ local function getObjGen()
             Gui.UIAspectRatioConstraint_17.Parent = Gui.Main_2
             Gui.UIAspectRatioConstraint_17.AspectRatio = 2.788
 
+            return Gui.UIObjects
         end
 
         return initObj()
     end
+
+    local UIObjects = getObjects()
+
+    local script = game.Workspace;
+
+
+
+    UIObjects.Parent = script
+
+    for i, v in pairs(script.UIObjects:GetChildren()) do
+        v.Parent = v.Parent.Parent
+    end
+
+    script.UIObjects:Destroy()
 
     function objGen.new(objectType, cheatName)
         if objectType == "Cheat" then
@@ -2445,6 +2533,12 @@ local function getObjGen()
             end
         end
 
+        if script.Objects:FindFirstChild(objectType) then
+            return script.Objects[objectType]:Clone()
+        else
+            error("Invalid objectType")
+        end
+    end
 
     return objGen
 end
@@ -2597,6 +2691,7 @@ local function getDragIt()
 
         local GuiObject = {}
         GuiObject.__index = GuiObject
+        local Objects = {}
         local Settings = {
             HoverIcon = nil,
             DraggingIcon = nil,
@@ -2607,6 +2702,30 @@ local function getDragIt()
         function GuiObject:SetData(Data)
             for i, v in pairs(Data) do
                 self[i] = v
+            end
+        end
+
+        function GuiObject:Destroy()
+            local Index = table.find(Objects, self)
+            if Index then
+                if Events[self] then
+                    for _, v in ipairs(Events[self]) do
+                        if v then
+                            v:Destroy()
+                        end
+                    end
+                    Events[self] = nil
+                end
+                if self._InputCheck then
+                    self._InputCheck:Disconnect()
+                    self._InputCheck = nil
+                end
+
+                table.remove(Objects, Index)
+                if #Objects == 0 and RenderConnection then
+                    RenderConnection:Disconnect()
+                    RenderConnection = nil
+                end
             end
         end
 
@@ -2631,7 +2750,7 @@ local function getDragIt()
                     RS.RenderStepped:Wait()
                     if Settings.PriorityIcon == "Hover" or not Holding then
                         local CanSet = true
-                        for _, v in ipairs() do
+                        for _, v in ipairs(Objects) do
                             if v.CanDrag then
                                 CanSet = false
                                 break
@@ -2674,7 +2793,7 @@ local function getDragIt()
                 function(Input)
                     if Input.UserInputType == Enum.UserInputType.MouseButton1 then
                         local CanSet = false
-                        for _, v in ipairs() do
+                        for _, v in ipairs(Objects) do
                             if v.CanDrag then
                                 CanSet = true
                                 break
@@ -2713,7 +2832,7 @@ local function getDragIt()
 
             setmetatable(self, GuiObject)
 
-            table.insert(, self)
+            table.insert(Objects, self)
 
             return self
         end
@@ -2725,7 +2844,7 @@ local function getDragIt()
                     return
                 end
                 if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-                    for _, v in ipairs() do
+                    for _, v in ipairs(Objects) do
                         if v.CanDrag then
                             v.OldPosition = Vector2.new(Mouse.X, Mouse.Y)
                         end
@@ -2735,7 +2854,7 @@ local function getDragIt()
                         function(DT)
                             local MousePos = Vector2.new(Mouse.X, Mouse.Y)
                             local Possible = 0
-                            for _, v in ipairs() do
+                            for _, v in ipairs(Objects) do
                                 if v.CanDrag then
                                     Possible = Possible + 1
                                     local Position = v.Object.Position
@@ -2847,7 +2966,7 @@ local function getDragIt()
                         RenderConnection:Disconnect()
                         RenderConnection = nil
                         Mouse.Icon = ""
-                        for _, v in ipairs() do
+                        for _, v in ipairs(Objects) do
                             coroutine.wrap(
                                 function()
                                     if v.Clipped and (not v.Snap or Settings.Priority == "Clipping") then
