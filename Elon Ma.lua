@@ -7,7 +7,6 @@ local function getObjGen()
     local function getObjects()
         local function initObj()
             local Gui = {
-                UIObjects = Instance.new("Folder"),
                 Cheats = Instance.new("Folder"),
                 Button = Instance.new("Frame"),
                 UICorner = Instance.new("UICorner"),
@@ -287,11 +286,6 @@ local function getObjGen()
             }
 
             --Properties:
-
-            Gui.UIObjects.Name = "UIObjects"
-
-            Gui.Cheats.Name = "Cheats"
-            Gui.Cheats.Parent = Gui.UIObjects
 
             Gui.Button.Name = "Button"
             Gui.Button.Parent = Gui.Cheats
@@ -1114,7 +1108,6 @@ local function getObjGen()
             Gui.Current_3.TextWrapped = true
 
             Gui.Objects.Name = "Objects"
-            Gui.Objects.Parent = Gui.UIObjects
 
             Gui.Category.Name = "Category"
             Gui.Category.Parent = Gui.Objects
@@ -2502,13 +2495,10 @@ local function getObjGen()
             Gui.UIAspectRatioConstraint_17.Parent = Gui.Main_2
             Gui.UIAspectRatioConstraint_17.AspectRatio = 2.788
 
-            return Gui.UIObjects
         end
 
         return initObj()
     end
-
-    script.UIObjects:Destroy()
 
     function objGen.new(objectType, cheatName)
         if objectType == "Cheat" then
